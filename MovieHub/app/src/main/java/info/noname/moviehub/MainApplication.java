@@ -12,6 +12,7 @@ import info.noname.moviehub.models.Actor;
 import info.noname.moviehub.models.Category;
 import info.noname.moviehub.models.Movie;
 import info.noname.moviehub.models.MovieActors;
+import info.noname.moviehub.models.MovieCategories;
 import info.noname.moviehub.models.MovieComment;
 import info.noname.moviehub.models.User;
 import info.noname.moviehub.models.UserListMovies;
@@ -58,15 +59,17 @@ public class MainApplication extends Application {
     private void initDb() {
         User user1 = new User("asd", "asd", "asd@asd.bg", "http://image.com");
 
-        Category category1 = new Category("Comedy", "Funny stories");
+        Category category1 = new Category("Comedy");
 
         Movie firstMovie = new Movie("Movie1", "The best movie", "www.abv.bg", "http://image.com", category1);
 
-        MovieComment firstComment = new MovieComment("Comment for the first movie", firstMovie);
+        MovieComment firstComment = new MovieComment("Comment for the first movie", firstMovie, user1);
 
         Actor kevinHart = new Actor("Kevin", "Hart");
 
         MovieActors movieActors = new MovieActors(firstMovie, kevinHart);
+
+        MovieCategories movieCategories = new MovieCategories(firstMovie, category1);
 
         UserVotes userVotes = new UserVotes(firstMovie, user1, 1);
 
@@ -78,6 +81,7 @@ public class MainApplication extends Application {
         firstComment.save();
         kevinHart.save();
         movieActors.save();
+        movieCategories.save();
         userVotes.save();
         userListMovies.save();
     }

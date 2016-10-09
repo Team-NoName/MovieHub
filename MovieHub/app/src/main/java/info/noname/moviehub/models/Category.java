@@ -14,21 +14,18 @@ import java.util.List;
 public class Category extends SugarRecord implements Parcelable {
 
     private String _name;
-    private String _title;
 
     public Category() {
 
     }
 
-    public Category(String name, String title) {
+    public Category(String name) {
         this.set_name(name);
-        this.set_title(title);
     }
 
-
     // Get all movies by current category
-    public List<Movie> gatAllMoviesCategory() {
-        return Movie.find(Movie.class, "category = ?", String.valueOf(getId()));
+    public List<MovieCategories> getAllMoviesByCategory() {
+        return MovieCategories.find(MovieCategories.class, "category = ?", String.valueOf(getId()));
     }
 
     public String get_name() {
@@ -39,17 +36,8 @@ public class Category extends SugarRecord implements Parcelable {
         this._name = _name;
     }
 
-    public String get_title() {
-        return _title;
-    }
-
-    public void set_title(String _title) {
-        this._title = _title;
-    }
-
     protected Category(Parcel in) {
         _name = in.readString();
-        _title = in.readString();
     }
 
     @Override
@@ -60,7 +48,6 @@ public class Category extends SugarRecord implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(_name);
-        dest.writeString(_title);
     }
 
     @SuppressWarnings("unused")

@@ -26,7 +26,7 @@ public class Actor extends SugarRecord implements Parcelable {
     }
 
     // Get all movies by current actor
-    public List<MovieActors> gatAllMoviesActor() {
+    public List<MovieActors> gatAllMoviesByActor() {
         return MovieActors.find(MovieActors.class, "actor = ?", String.valueOf(getId()));
     }
 

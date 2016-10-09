@@ -32,12 +32,12 @@ public class Movie extends SugarRecord implements Parcelable {
     }
 
     // Get all actors by current movie
-    public List<MovieActors> gatAllActorsMovie() {
+    public List<MovieActors> gatAllActorsByMovie() {
         return MovieActors.find(MovieActors.class, "movie = ?", String.valueOf(getId()));
     }
 
     // Get all user votes by current movie
-    public List<UserVotes> gatAllUserVotesByUser() {
+    public List<UserVotes> gatAllUserVotesByMovie() {
         return UserVotes.find(UserVotes.class, "movie = ?", String.valueOf(getId()));
     }
 
@@ -47,8 +47,13 @@ public class Movie extends SugarRecord implements Parcelable {
     }
 
     // Get all user lists by current movie
-    public List<UserListMovies> gatAllListMoviesByUser() {
+    public List<UserListMovies> gatAllUserListMoviesByMovie() {
         return UserListMovies.find(UserListMovies.class, "movie = ?", String.valueOf(getId()));
+    }
+
+    // Get all categories by current movie
+    public List<MovieCategories> getAllCategoriesByMovie() {
+        return MovieCategories.find(MovieCategories.class, "movie = ?", String.valueOf(getId()));
     }
 
     public String get_name() {

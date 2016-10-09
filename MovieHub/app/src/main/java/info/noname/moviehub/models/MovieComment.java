@@ -13,14 +13,16 @@ public class MovieComment extends SugarRecord implements Parcelable {
 
     private String _comment;
     private Movie _movie;
+    private User _user;
 
     public MovieComment() {
 
     }
 
-    public MovieComment(String commnent, Movie movie) {
+    public MovieComment(String commnent, Movie movie, User user) {
         this.set_comment(commnent);
         this.set_movie(movie);
+        this.set_user(user);
     }
 
     public Movie get_movie() {
@@ -39,9 +41,18 @@ public class MovieComment extends SugarRecord implements Parcelable {
         this._comment = _comment;
     }
 
+    public User get_user() {
+        return _user;
+    }
+
+    public void set_user(User _user) {
+        this._user = _user;
+    }
+
     protected MovieComment(Parcel in) {
         _comment = in.readString();
         _movie = (Movie) in.readValue(Movie.class.getClassLoader());
+        _user = (User) in.readValue(User.class.getClassLoader());
     }
 
     @Override
@@ -53,6 +64,7 @@ public class MovieComment extends SugarRecord implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(_comment);
         dest.writeValue(_movie);
+        dest.writeValue(_user);
     }
 
     @SuppressWarnings("unused")
