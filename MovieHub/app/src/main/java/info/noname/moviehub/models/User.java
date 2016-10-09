@@ -34,6 +34,11 @@ public class User extends SugarRecord implements Parcelable {
         return UserVotes.find(UserVotes.class, "user = ?", String.valueOf(getId()));
     }
 
+    // Get all list movies by current user
+    public List<UserListMovies> gatAllListMoviesByUser() {
+        return UserListMovies.find(UserListMovies.class, "user = ?", String.valueOf(getId()));
+    }
+
     public String get_username() {
         return _username;
     }

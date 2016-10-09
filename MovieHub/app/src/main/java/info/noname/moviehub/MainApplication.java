@@ -25,14 +25,17 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        // Delete the database if exist
         if (doesDatabaseExist(this, "movie_hub.db")) {
             SugarDb sugarDb = new SugarDb(getApplicationContext());
 
             new File(sugarDb.getDB().getPath()).delete();
         }
 
+        // Create and fill the database
         SugarContext.init(getApplicationContext());
-        if (!doesDatabaseExist(this, "movie_hub.db")){
+        boolean doesDbExist = doesDatabaseExist(this, "movie_hub.db");
+        if (!doesDbExist){
 
             Category.findById(Category.class, (long) 1);
             Movie.findById(Movie.class, (long) 1);
