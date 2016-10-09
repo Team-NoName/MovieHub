@@ -14,6 +14,7 @@ import info.noname.moviehub.models.Movie;
 import info.noname.moviehub.models.MovieActors;
 import info.noname.moviehub.models.MovieComment;
 import info.noname.moviehub.models.User;
+import info.noname.moviehub.models.UserListMovies;
 import info.noname.moviehub.models.UserVotes;
 
 /**
@@ -69,6 +70,8 @@ public class MainApplication extends Application {
 
         UserVotes userVotes = new UserVotes(firstMovie, user1, 1);
 
+        UserListMovies userListMovies = new UserListMovies(firstMovie, user1);
+
         user1.save();
         category1.save();
         firstMovie.save();
@@ -76,6 +79,7 @@ public class MainApplication extends Application {
         kevinHart.save();
         movieActors.save();
         userVotes.save();
+        userListMovies.save();
     }
 
     private boolean doesDatabaseExist(ContextWrapper context, String dbName) {
