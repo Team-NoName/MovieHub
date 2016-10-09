@@ -9,17 +9,17 @@ import com.orm.SugarRecord;
  * Created by AKamenov on 10/9/2016.
  */
 
-public class MovieComment extends SugarRecord implements Parcelable {
+public class MovieComments extends SugarRecord implements Parcelable {
 
     private String _comment;
     private Movie _movie;
     private User _user;
 
-    public MovieComment() {
+    public MovieComments() {
 
     }
 
-    public MovieComment(String commnent, Movie movie, User user) {
+    public MovieComments(String commnent, Movie movie, User user) {
         this.set_comment(commnent);
         this.set_movie(movie);
         this.set_user(user);
@@ -49,7 +49,7 @@ public class MovieComment extends SugarRecord implements Parcelable {
         this._user = _user;
     }
 
-    protected MovieComment(Parcel in) {
+    protected MovieComments(Parcel in) {
         _comment = in.readString();
         _movie = (Movie) in.readValue(Movie.class.getClassLoader());
         _user = (User) in.readValue(User.class.getClassLoader());
@@ -68,15 +68,15 @@ public class MovieComment extends SugarRecord implements Parcelable {
     }
 
     @SuppressWarnings("unused")
-    public static final Parcelable.Creator<MovieComment> CREATOR = new Parcelable.Creator<MovieComment>() {
+    public static final Parcelable.Creator<MovieComments> CREATOR = new Parcelable.Creator<MovieComments>() {
         @Override
-        public MovieComment createFromParcel(Parcel in) {
-            return new MovieComment(in);
+        public MovieComments createFromParcel(Parcel in) {
+            return new MovieComments(in);
         }
 
         @Override
-        public MovieComment[] newArray(int size) {
-            return new MovieComment[size];
+        public MovieComments[] newArray(int size) {
+            return new MovieComments[size];
         }
     };
 }

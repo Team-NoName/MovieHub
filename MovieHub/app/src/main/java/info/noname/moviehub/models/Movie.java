@@ -42,8 +42,8 @@ public class Movie extends SugarRecord implements Parcelable {
     }
 
     // Get all comments by current movie
-    public List<MovieComment> gatAllCommentsByMovie() {
-        return MovieComment.find(MovieComment.class, "movie = ?", String.valueOf(getId()));
+    public List<MovieComments> gatAllCommentsByMovie() {
+        return MovieComments.find(MovieComments.class, "movie = ?", String.valueOf(getId()));
     }
 
     // Get all user lists by current movie

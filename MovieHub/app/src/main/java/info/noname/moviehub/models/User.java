@@ -40,8 +40,8 @@ public class User extends SugarRecord implements Parcelable {
     }
 
     // Get all comments by current user
-    public List<MovieComment> gatAllCommentsByUser() {
-        return MovieComment.find(MovieComment.class, "user = ?", String.valueOf(getId()));
+    public List<MovieComments> gatAllCommentsByUser() {
+        return MovieComments.find(MovieComments.class, "user = ?", String.valueOf(getId()));
     }
 
     public String get_username() {

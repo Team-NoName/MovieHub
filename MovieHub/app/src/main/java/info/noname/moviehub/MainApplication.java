@@ -13,7 +13,7 @@ import info.noname.moviehub.models.Category;
 import info.noname.moviehub.models.Movie;
 import info.noname.moviehub.models.MovieActors;
 import info.noname.moviehub.models.MovieCategories;
-import info.noname.moviehub.models.MovieComment;
+import info.noname.moviehub.models.MovieComments;
 import info.noname.moviehub.models.User;
 import info.noname.moviehub.models.UserListMovies;
 import info.noname.moviehub.models.UserVotes;
@@ -63,7 +63,7 @@ public class MainApplication extends Application {
 
         Movie firstMovie = new Movie("Movie1", "The best movie", "www.abv.bg", "http://image.com", category1);
 
-        MovieComment firstComment = new MovieComment("Comment for the first movie", firstMovie, user1);
+        MovieComments firstComment = new MovieComments("Comment for the first movie", firstMovie, user1);
 
         Actor kevinHart = new Actor("Kevin", "Hart");
 
