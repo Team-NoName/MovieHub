@@ -15,7 +15,7 @@ public class Movie extends SugarRecord implements Parcelable {
 
     private String _name;
     private String _description;
-    private String _urlTriller;
+    private String _urlTrailer;
     private String _poster;
     private Category _category;
 
@@ -26,7 +26,7 @@ public class Movie extends SugarRecord implements Parcelable {
     public Movie(String name, String description, String urlTriller, String poster, Category category) {
         this.set_name(name);
         this.set_description(description);
-        this.set_urlTriller(urlTriller);
+        this.set_urlTrailer(urlTriller);
         this.set_poster(poster);
         this.set_category(category);
     }
@@ -72,12 +72,12 @@ public class Movie extends SugarRecord implements Parcelable {
         this._description = _description;
     }
 
-    public String get_urlTriller() {
-        return _urlTriller;
+    public String get_urlTrailer() {
+        return _urlTrailer;
     }
 
-    public void set_urlTriller(String _urlTriller) {
-        this._urlTriller = _urlTriller;
+    public void set_urlTrailer(String _urlTriller) {
+        this._urlTrailer = _urlTriller;
     }
 
     public String get_poster() {
@@ -99,7 +99,7 @@ public class Movie extends SugarRecord implements Parcelable {
     protected Movie(Parcel in) {
         _name = in.readString();
         _description = in.readString();
-        _urlTriller = in.readString();
+        _urlTrailer = in.readString();
         _poster = in.readString();
         _category = (Category) in.readValue(Category.class.getClassLoader());
     }
@@ -113,7 +113,7 @@ public class Movie extends SugarRecord implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(_name);
         dest.writeString(_description);
-        dest.writeString(_urlTriller);
+        dest.writeString(_urlTrailer);
         dest.writeString(_poster);
         dest.writeValue(_category);
     }
