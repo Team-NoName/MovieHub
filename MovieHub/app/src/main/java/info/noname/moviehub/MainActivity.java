@@ -1,21 +1,28 @@
 package info.noname.moviehub;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    public final Context mCtx = this;
 
     private Button mBtnLogin;
-    private AlertDialogManager mDialogManager;
-    public final Context ctx = this;
 
-    private EditText mTxtUsername;
-    private EditText mTextUserPassword;
+    private AlertDialogManager mDialogManager;
+
+    private Button mLoginButton;
+
+    private EditText mUsernameEditText;
+    private EditText mPasswrodEditText;
+
+    private TextView mRegisterLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,18 +34,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mDialogManager = new AlertDialogManager();
 
-        mBtnLogin = (Button) findViewById(R.id.login_button);
+        mLoginButton = (Button) findViewById(R.id.login_button);
 
-        mTxtUsername = (EditText) findViewById(R.id.username_edit_text);
-        mTextUserPassword = (EditText) findViewById(R.id.password_edit_text);
+        mUsernameEditText = (EditText) findViewById(R.id.username_edit_text);
+        mPasswrodEditText = (EditText) findViewById(R.id.password_edit_text);
 
-        mBtnLogin.setOnClickListener(this);
+        mRegisterLink = (TextView) findViewById(R.id.register_link);
+
+        mLoginButton.setOnClickListener(this);
+        mRegisterLink.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.login_button) {
 
+        }
+
+        if (v.getId() == R.id.register_link) {
+            Intent intent = new Intent(this, RegisterManager.class);
+
+            startActivity(intent);
         }
     }
 }

@@ -14,6 +14,7 @@ import android.widget.EditText;
 public class RegisterManager extends AppCompatActivity implements View.OnClickListener {
 
     private Button mRegisterButton;
+
     private EditText mUsernameEditText;
     private EditText mPasswrodEditText;
     private EditText mUserEmail;
@@ -23,7 +24,8 @@ public class RegisterManager extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_layout);
 
-        mRegisterButton = (Button) findViewById(R.id.login_button);
+        mRegisterButton = (Button) findViewById(R.id.register_button);
+
         mUsernameEditText = (EditText) findViewById(R.id.username_edit_text);
         mPasswrodEditText = (EditText) findViewById(R.id.password_edit_text);
         mUserEmail = (EditText) findViewById(R.id.email_edit_text);

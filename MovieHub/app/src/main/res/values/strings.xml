@@ -8,4 +8,5 @@
     <string name="menu">Menu</string>
     <string name="user_email">Email</string>
     <string name="register">Register</string>
+    <string name="register_here">Register Here</string>
 </resources>
