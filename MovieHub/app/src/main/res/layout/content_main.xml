@@ -13,55 +13,6 @@
     tools:context="info.noname.moviehub.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <EditText
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="68dp"
-        android:id="@+id/username_edit_text" />
-
-    <EditText
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_below="@+id/username_edit_text"
-        android:layout_alignLeft="@+id/username_edit_text"
-        android:layout_alignStart="@+id/username_edit_text"
-        android:layout_marginTop="79dp"
-        android:id="@+id/password_edit_text" />
-
-    <Button
-        android:text="@string/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password_edit_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="73dp"
-        android:id="@+id/login_button" />
-
-    <TextView
-        android:text="@string/user_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
-        android:id="@+id/username_text_view" />
-
-    <TextView
-        android:text="@string/user_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username_edit_text"
-        android:layout_alignLeft="@+id/username_text_view"
-        android:layout_alignStart="@+id/username_text_view"
-        android:layout_marginTop="35dp"
-        android:id="@+id/password_text_view" />
+    <include layout="@layout/login_layout" />
 
 </RelativeLayout>
