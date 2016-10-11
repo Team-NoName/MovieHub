@@ -13,22 +13,26 @@ import java.util.List;
 
 public class Movie extends SugarRecord implements Parcelable {
 
-    private String _name;
-    private String _description;
-    private String _urlTrailer;
-    private String _poster;
+    private String _title;
     private Category _category;
+    private int _year;
+    private int _duration;
+    private String _description;
+    private String _poster;
+    private String _urlTrailer;
 
     public Movie() {
 
     }
 
-    public Movie(String name, String description, String urlTriller, String poster, Category category) {
-        this.set_name(name);
-        this.set_description(description);
-        this.set_urlTrailer(urlTriller);
-        this.set_poster(poster);
+    public Movie(String title, Category category, int year, int duration, String description, String poster, String urlTrailer) {
+        this.set_title(title);
         this.set_category(category);
+        this.set_year(year);
+        this.set_duration(duration);
+        this.set_description(description);
+        this.set_poster(poster);
+        this.set_urlTrailer(urlTrailer);
     }
 
     // Get all actors by current movie
@@ -56,36 +60,12 @@ public class Movie extends SugarRecord implements Parcelable {
         return MovieCategories.find(MovieCategories.class, "movie = ?", String.valueOf(getId()));
     }
 
-    public String get_name() {
-        return _name;
+    public String get_title() {
+        return _title;
     }
 
-    public void set_name(String _name) {
-        this._name = _name;
-    }
-
-    public String get_description() {
-        return _description;
-    }
-
-    public void set_description(String _description) {
-        this._description = _description;
-    }
-
-    public String get_urlTrailer() {
-        return _urlTrailer;
-    }
-
-    public void set_urlTrailer(String _urlTriller) {
-        this._urlTrailer = _urlTriller;
-    }
-
-    public String get_poster() {
-        return _poster;
-    }
-
-    public void set_poster(String _poster) {
-        this._poster = _poster;
+    public void set_title(String _title) {
+        this._title = _title;
     }
 
     public Category get_category() {
@@ -96,12 +76,55 @@ public class Movie extends SugarRecord implements Parcelable {
         this._category = _category;
     }
 
+    public int get_year() {
+        return _year;
+    }
+
+    public void set_year(int _year) {
+        this._year = _year;
+    }
+
+    public int get_duration() {
+        return _duration;
+    }
+
+    public void set_duration(int _duration) {
+        this._duration = _duration;
+    }
+
+    public String get_description() {
+        return _description;
+    }
+
+    public void set_description(String _description) {
+        this._description = _description;
+    }
+
+    public String get_poster() {
+        return _poster;
+    }
+
+    public void set_poster(String _poster) {
+        this._poster = _poster;
+    }
+
+    public String get_urlTrailer() {
+        return _urlTrailer;
+    }
+
+    public void set_urlTrailer(String _urlTrailer) {
+        this._urlTrailer = _urlTrailer;
+    }
+
+
     protected Movie(Parcel in) {
-        _name = in.readString();
-        _description = in.readString();
-        _urlTrailer = in.readString();
-        _poster = in.readString();
+        _title = in.readString();
         _category = (Category) in.readValue(Category.class.getClassLoader());
+        _year = in.readInt();
+        _duration = in.readInt();
+        _description = in.readString();
+        _poster = in.readString();
+        _urlTrailer = in.readString();
     }
 
     @Override
@@ -111,11 +134,13 @@ public class Movie extends SugarRecord implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(_name);
-        dest.writeString(_description);
-        dest.writeString(_urlTrailer);
-        dest.writeString(_poster);
+        dest.writeString(_title);
         dest.writeValue(_category);
+        dest.writeInt(_year);
+        dest.writeInt(_duration);
+        dest.writeString(_description);
+        dest.writeString(_poster);
+        dest.writeString(_urlTrailer);
     }
 
     @SuppressWarnings("unused")

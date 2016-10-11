@@ -3,4 +3,15 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <!-- Movies dimensions -->
+    <dimen name="movies_horizontal_row_height">200dp</dimen>
+    <dimen name="movies_padding_border_size">2dp</dimen>
+    <dimen name="movies_margin_border_size">4dp</dimen>
+    <dimen name="movies_margin_text_fields_size">4dp</dimen>
+    <dimen name="movies_poster_width">130dp</dimen>
+    <dimen name="movies_text_margin_size">4dp</dimen>
+    <dimen name="movies_title_text_size">16sp</dimen>
+    <dimen name="movies_category_text_size">12sp</dimen>
+    <dimen name="movies_description_text_size">14sp</dimen>
+    <dimen name="movie_poster_width_size">134dp</dimen>
 </resources>
