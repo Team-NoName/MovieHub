@@ -9,4 +9,5 @@
     <color name="colorMovieTitle">#ffdf33</color>
     <color name="colorMovieCategory">#ffffff</color>
     <color name="colorMovieDescription">#c6c6c6</color>
+    <color name="white">#FFFFFF</color>
 </resources>
