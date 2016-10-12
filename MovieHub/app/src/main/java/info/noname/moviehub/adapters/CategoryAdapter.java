@@ -1,16 +1,19 @@
-package info.noname.moviehub.adapters;
+package info.noname.moviehub;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
-import info.noname.moviehub.R;
 import info.noname.moviehub.models.Category;
 
 /**
@@ -18,13 +21,19 @@ import info.noname.moviehub.models.Category;
  */
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     private List<Category> mDataset;
+    private Context mCtx;
+    private static IOnCategoryClicked callback;
 
+    public void setCallback(IOnCategoryClicked callback){
+        this.callback = callback;
+    }
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView mTextNameView;
+        public ImageView mCategoryImage;
         public RelativeLayout parent;
 
         public ViewHolder(View v) {
@@ -32,12 +41,25 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
             mTextNameView = (TextView) v.findViewById(R.id.categoryName);
             parent = (RelativeLayout) v.findViewById(R.id.parent);
+            mCategoryImage = (ImageView) v.findViewById(R.id.categoryImage);
+
+            parent.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    if (callback != null){
+                        callback.onCategoryClicked(getAdapterPosition());
+                    }
+                }
+            });
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CategoryAdapter(List<Category> myDataset) {
-        mDataset = myDataset;
+    public CategoryAdapter(Context ctx, List<Category> myDataset, IOnCategoryClicked callback) {
+        this.mCtx = ctx;
+        this.mDataset = myDataset;
+        this.setCallback(callback);
     }
 
     // Create new views (invoked by the layout manager)
@@ -60,7 +82,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         // - replace the contents of the view with that element
       //  holder.mTextNameView.setText(mDataset[position]);
         holder.mTextNameView.setText(mDataset.get(position).get_name());
-        holder.parent.setBackgroundColor(Color.parseColor("#3333ff"));
+        Picasso.with(mCtx).load(mDataset.get(position).get_categoryImage()).fit().into(holder.mCategoryImage);
+        holder.parent.setBackgroundColor(Color.parseColor(mDataset.get(position).get_categoryBackground()));
     }
 
     // Return the size of your dataset (invoked by the layout manager)

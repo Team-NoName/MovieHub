@@ -14,18 +14,23 @@ import java.util.List;
 public class Category extends SugarRecord implements Parcelable {
 
     private String _name;
+    private String _categoryImage;
+    private String _categoryBackground;
 
     public Category() {
 
     }
 
-    public Category(String name) {
+    public Category(String name, String categoryImage, String categoryBackground) {
+
         this.set_name(name);
+        this.set_categoryImage(categoryImage);
+        this.set_categoryBackground(categoryBackground);
     }
 
     // Get all movies by current category
     public List<MovieCategories> getAllMoviesByCategory() {
-        return MovieCategories.find(MovieCategories.class, "category = ?", String.valueOf(getId()));
+        return MovieCategories.find(MovieCategories.class, "_category = ?", String.valueOf(getId()));
     }
 
     public String get_name() {
@@ -36,8 +41,23 @@ public class Category extends SugarRecord implements Parcelable {
         this._name = _name;
     }
 
+    public String get_categoryImage(){ return _categoryImage; }
+
+    public void set_categoryImage(String _categoryImage){ this._categoryImage = _categoryImage; }
+
+    public String get_categoryBackground(){
+        return _categoryBackground;
+    }
+
+    public void set_categoryBackground(String _categoryBackground){
+        this._categoryBackground = _categoryBackground;
+    }
+
     protected Category(Parcel in) {
+
         _name = in.readString();
+        _categoryImage = in.readString();
+        _categoryBackground = in.readString();
     }
 
     @Override
@@ -48,6 +68,8 @@ public class Category extends SugarRecord implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(_name);
+        dest.writeString(_categoryImage);
+        dest.writeString(_categoryBackground);
     }
 
     @SuppressWarnings("unused")

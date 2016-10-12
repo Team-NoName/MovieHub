@@ -59,9 +59,9 @@ public class MainApplication extends Application {
     private void initDb() {
         User user1 = new User("John", "Snow", "john@snow.bg", "http://cdn.tvweb.com/img.news.tops/NEaMHVFvWpoJeh_2_b.jpg");
 
-        Category categoryAction = new Category("Action");
-        Category categoryDrama = new Category("Drama");
-        Category categoryComedy = new Category("Comedy");
+        Category categoryAction = new Category("Action", "http://i279.photobucket.com/albums/kk143/pasqkpo/Chucknorris.png", "#997300");
+        Category categoryDrama = new Category("Drama", "http://www.bamangharhs.edu.bd/images/staffs/drama-icon.png", "#0066cc");
+        Category categoryComedy = new Category("Comedy", "https://moviefiednyc.files.wordpress.com/2013/11/e0006-ace-ventura-pet-detective-512c7fac5d838.png", "#2eb82e");
 
         Movie movie1 = new Movie("The Matrix", categoryAction, 1999, 136, "Thomas A. Anderson is a man living two lives. By day he is an average computer programmer and by night a hacker known as Neo. Neo has always questioned his reality, but the truth is far beyond his imagination. Neo finds himself targeted by the police when he is contacted by Morpheus, a legendary computer hacker branded a terrorist by the government. Morpheus awakens Neo to the real world, a ravaged wasteland where most of humanity have been captured by a race of machines that live off of the humans' body heat and electrochemical energy and who imprison their minds within an artificial reality known as the Matrix. As a rebel against the machines, Neo must return to the Matrix and confront the agents: super-powerful computer programs devoted to snuffing out Neo and the entire human rebellion.","http://www.impawards.com/1999/posters/matrix_ver1.jpg", "https://www.youtube.com/watch?v=Q8g9zL-JL8E");
         Movie movie2 = new Movie("American History X ", categoryDrama, 1998, 119, "Derek Vineyard is paroled after serving 3 years in prison for killing two thugs who tried to break into/steal his truck. Through his brother, Danny Vineyard's narration, we learn that before going to prison, Derek was a skinhead and the leader of a violent white supremacist gang that committed acts of racial crime throughout L.A. and his actions greatly influenced Danny. Reformed and fresh out of prison, Derek severs contact with the gang and becomes determined to keep Danny from going down the same violent path as he did.", "https://www.cinematerial.com/media/posters/md/zj/zjjeldsq.jpg", "https://www.youtube.com/watch?v=JsPW6Fj3BUI");

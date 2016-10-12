@@ -6,6 +6,7 @@
     android:layout_height="@dimen/movies_horizontal_row_height">
 
     <RelativeLayout
+        android:id="@+id/movieParent"
         android:background="@color/colorMovieForeground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

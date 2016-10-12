@@ -14,12 +14,25 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
+        <ImageView
+            android:layout_height="match_parent"
+            android:layout_width="200dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:layout_below="@+id/categoryName"
+            android:id="@+id/categoryImage" />
+
         <TextView
-            android:textSize="@dimen/category_text_size"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="56dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginTop="21dp"
             android:id="@+id/categoryName" />
     </RelativeLayout>
 </LinearLayout>

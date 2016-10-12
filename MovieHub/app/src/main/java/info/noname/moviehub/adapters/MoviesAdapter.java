@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import info.noname.moviehub.IOnCategoryClicked;
 import info.noname.moviehub.R;
 import info.noname.moviehub.models.Movie;
 
@@ -19,17 +21,22 @@ import info.noname.moviehub.models.Movie;
  * Created by Bare7a on 10/10/2016.
  */
 
-public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder> {
+public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder>{
     private List<Movie> mMovies;
     private Context mCtx;
+    private static IOnCategoryClicked callback;
 
+    public void setCallback(IOnCategoryClicked callback){
+        this.callback = callback;
+    }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
 
         TextView mTitle;
         TextView mCategory;
         TextView mDescription;
         ImageView mPoster;
+        RelativeLayout mParent;
 
         ViewHolder(View v) {
             super(v);
@@ -38,13 +45,23 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
             mCategory = (TextView) v.findViewById(R.id.movieCategory);
             mDescription = (TextView) v.findViewById(R.id.movieDescription);
             mPoster = (ImageView) v.findViewById(R.id.moviePoster);
+            mParent = (RelativeLayout) v.findViewById(R.id.movieParent);
 
+            mParent.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (callback != null){
+                callback.onCategoryClicked(getAdapterPosition());
+            }
         }
     }
 
-    public MoviesAdapter(Context context, List<Movie> movies) {
+    public MoviesAdapter(Context context, List<Movie> movies, IOnCategoryClicked callback) {
         this.mCtx = context;
         this.mMovies = movies;
+        this.setCallback(callback);
     }
 
     @Override
@@ -60,6 +77,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         holder.mCategory.setText(mMovies.get(position).get_category().get_name() +", "+mMovies.get(position).get_duration()+" minutes");
         holder.mDescription.setText(mMovies.get(position).get_description());
         Picasso.with(mCtx).load(mMovies.get(position).get_poster()).fit().into(holder.mPoster);
+
     }
 
 
@@ -67,4 +85,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
     public int getItemCount() {
         return mMovies.size();
     }
+
+
+
 }
