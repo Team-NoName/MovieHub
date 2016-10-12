@@ -1,4 +1,4 @@
-package info.noname.moviehub;
+package info.noname.moviehub.adapters;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import info.noname.moviehub.R;
 import info.noname.moviehub.models.Category;
 
 /**
@@ -45,7 +46,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                                                    int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.category_layout, parent, false);
+                .inflate(R.layout.category_recycle_view, parent, false);
         // set the view's size, margins, paddings and layout parameters
 
         ViewHolder vh = new ViewHolder(v);

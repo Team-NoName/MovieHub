@@ -10,4 +10,5 @@
     <string name="register">Register</string>
     <string name="register_here">Register Here</string>
     <string name="movie_poster">movie_poster</string>
+    <string name="logout">logout</string>
 </resources>
