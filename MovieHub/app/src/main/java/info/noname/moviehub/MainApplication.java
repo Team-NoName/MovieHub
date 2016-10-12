@@ -57,7 +57,7 @@ public class MainApplication extends Application {
     }
 
     private void initDb() {
-        User user1 = new User("John", "Snow", "john@snow.bg", "http://cdn.tvweb.com/img.news.tops/NEaMHVFvWpoJeh_2_b.jpg");
+        User user1 = new User("John", "7815696ecbf1c96e6894b779456d33e", "john@snow.bg", "http://cdn.tvweb.com/img.news.tops/NEaMHVFvWpoJeh_2_b.jpg");
 
         Category categoryAction = new Category("Action");
         Category categoryDrama = new Category("Drama");
