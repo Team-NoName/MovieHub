@@ -4,16 +4,19 @@
     <dimen name="activity_vertical_margin">0dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <!-- Movies dimensions -->
-    <dimen name="movies_horizontal_row_height">200dp</dimen>
-    <dimen name="movies_padding_border_size">2dp</dimen>
-    <dimen name="movies_margin_border_size">4dp</dimen>
-    <dimen name="movies_margin_text_fields_size">4dp</dimen>
-    <dimen name="movies_poster_width">130dp</dimen>
-    <dimen name="movies_text_margin_size">4dp</dimen>
-    <dimen name="movies_title_text_size">16sp</dimen>
-    <dimen name="movies_category_text_size">12sp</dimen>
-    <dimen name="movies_description_text_size">14sp</dimen>
+    <dimen name="movie_horizontal_row_height">200dp</dimen>
+    <dimen name="movie_padding_border_size">2dp</dimen>
+    <dimen name="movie_margin_border_size">4dp</dimen>
+    <dimen name="movie_margin_text_fields_size">4dp</dimen>
+    <dimen name="movie_poster_width">130dp</dimen>
+    <dimen name="movie_text_margin_size">4dp</dimen>
+    <dimen name="movie_title_text_size">16sp</dimen>
+    <dimen name="movie_category_text_size">12sp</dimen>
+    <dimen name="movie_description_text_size">14sp</dimen>
     <dimen name="movie_poster_width_size">134dp</dimen>
+    <!-- Category dimensions -->
     <dimen name="category_text_size">24dp</dimen>
-
+    <!-- Detailed movie dimensions -->
+    <dimen name="detailed_movie_margin_border_size">4dp</dimen>
+    <dimen name="detailed_movie_title_text_size">20sp</dimen>
 </resources>
