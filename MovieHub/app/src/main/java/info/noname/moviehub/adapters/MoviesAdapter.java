@@ -47,7 +47,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
             mPoster = (ImageView) v.findViewById(R.id.moviePoster);
             mParent = (RelativeLayout) v.findViewById(R.id.movieParent);
 
-            mParent.setOnClickListener(this);
+            mParent.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    if(callback!=null){
+                        callback.onItemClicked(getAdapterPosition());
+                    }
+                }
+            });
         }
 
         @Override
@@ -80,12 +87,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
     }
 
-
     @Override
     public int getItemCount() {
         return mMovies.size();
     }
-
-
-
 }

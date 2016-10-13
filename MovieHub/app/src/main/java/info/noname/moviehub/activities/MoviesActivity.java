@@ -1,5 +1,6 @@
 package info.noname.moviehub.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -50,6 +51,9 @@ public class MoviesActivity extends AppCompatActivity implements IOnItemClicked 
 
     @Override
     public void onItemClicked(int position) {
-        //put your logic here
+        Movie selectedMovie = mMovies.get(position);
+        Intent intent = new Intent(MoviesActivity.this, DetailedMovieActivity.class);
+        intent.putExtra("movie", selectedMovie);
+        startActivity(intent);
     }
 }

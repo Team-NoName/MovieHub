@@ -24,6 +24,7 @@ public class DetailedMovieActivity extends AppCompatActivity implements IOnItemC
     private TextView mMovieCategory;
     private TextView mMovieActors;
     private TextView mMovieDescription;
+    private static IOnItemClicked callback;
 
 
     protected void onCreate(Bundle savedInstanceState) {
