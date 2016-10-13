@@ -14,7 +14,7 @@ import android.widget.TextView;
 import info.noname.moviehub.AlertDialogManager;
 import info.noname.moviehub.R;
 import info.noname.moviehub.UserLocalStore;
-import info.noname.moviehub.activities.ItemActivity;
+import info.noname.moviehub.activities.CategoryActivity;
 import info.noname.moviehub.appData.UserData;
 import info.noname.moviehub.models.User;
 
@@ -75,7 +75,7 @@ public class LoginFragmentManager extends Fragment implements View.OnClickListen
                     this.mUserLocalStore.setUserLoggedIn(true);
                     this.mUserLocalStore.storeUserData(user);
 
-                    Intent intent = new Intent(getContext(), ItemActivity.class);
+                    Intent intent = new Intent(getContext(), CategoryActivity.class);
 
                     startActivity(intent);
                 } else {

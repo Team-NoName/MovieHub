@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 import info.noname.moviehub.R;
 import info.noname.moviehub.UserLocalStore;
-import info.noname.moviehub.activities.ItemActivity;
+import info.noname.moviehub.activities.CategoryActivity;
 import info.noname.moviehub.appData.UserData;
 import info.noname.moviehub.models.User;
 
@@ -66,7 +66,7 @@ public class RegisterFragmentManager extends Fragment implements View.OnClickLis
                     this.mUserLocalStore.setUserLoggedIn(true);
                     this.mUserLocalStore.storeUserData(addedUser);
 
-                    Intent intent = new Intent(getContext(), ItemActivity.class);
+                    Intent intent = new Intent(getContext(), CategoryActivity.class);
 
                     startActivity(intent);
                 }

@@ -2,8 +2,6 @@ package info.noname.moviehub.activities;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,7 +11,7 @@ import info.noname.moviehub.UserLocalStore;
 import info.noname.moviehub.fragments.LoginFragmentManager;
 import info.noname.moviehub.models.User;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends BasicActivity implements View.OnClickListener{
     public final Context mCtx = this;
 
     private AlertDialogManager mDialogManager;
@@ -37,10 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        this.setTitle(getString(R.string.menu));
 
         mDialogManager = new AlertDialogManager();
         mGoToLogin = (Button) findViewById(R.id.logout_button);

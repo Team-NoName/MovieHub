@@ -4,16 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import info.noname.moviehub.CategoryAdapter;
 import info.noname.moviehub.IOnItemClicked;
 import info.noname.moviehub.R;
+import info.noname.moviehub.adapters.CategoryAdapter;
 import info.noname.moviehub.models.Category;
 import info.noname.moviehub.models.MovieCategories;
 
@@ -21,7 +20,7 @@ import info.noname.moviehub.models.MovieCategories;
  * Created by AKamenov on 10/13/2016.
  */
 
-public class ItemActivity extends AppCompatActivity implements IOnItemClicked {
+public class CategoryActivity extends BasicActivity implements IOnItemClicked {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -31,7 +30,6 @@ public class ItemActivity extends AppCompatActivity implements IOnItemClicked {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.category_layout);
  
         mRecyclerView = (RecyclerView)findViewById(R.id.category_recycle_view);
 
@@ -50,7 +48,7 @@ public class ItemActivity extends AppCompatActivity implements IOnItemClicked {
 
      @Override
     public void onItemClicked(int position) {
-        Intent intent = new Intent(ItemActivity.this, MoviesActivity.class);
+        Intent intent = new Intent(CategoryActivity.this, MoviesActivity.class);
 
         Category category = myDataset.get(position);
 

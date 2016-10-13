@@ -1,4 +1,4 @@
-package info.noname.moviehub;
+package info.noname.moviehub.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -14,6 +14,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import info.noname.moviehub.IOnItemClicked;
+import info.noname.moviehub.R;
 import info.noname.moviehub.models.Category;
 
 /**

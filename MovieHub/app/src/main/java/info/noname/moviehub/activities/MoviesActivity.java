@@ -2,7 +2,6 @@ package info.noname.moviehub.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -19,7 +18,7 @@ import info.noname.moviehub.models.MovieCategories;
  * Created by Bare7a on 10/10/2016.
  */
 
-public class MoviesActivity extends AppCompatActivity implements IOnItemClicked {
+public class MoviesActivity extends BasicActivity implements IOnItemClicked {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -28,7 +27,6 @@ public class MoviesActivity extends AppCompatActivity implements IOnItemClicked 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.movies_layout);
 
         List<MovieCategories> selectedCategory = getIntent().getParcelableArrayListExtra("category_movies");
         // setTitle(getIntent().getStringExtra("category_name"));

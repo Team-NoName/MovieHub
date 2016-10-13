@@ -21,4 +21,7 @@
 
     </FrameLayout>
 
+    <include layout="@layout/category_layout" />
+    <include layout="@layout/movies_layout" />
+
 </RelativeLayout>
