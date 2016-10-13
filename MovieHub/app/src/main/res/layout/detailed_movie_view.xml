@@ -18,6 +18,7 @@
             android:layout_alignParentStart="true"
             android:id="@+id/detailedMovieTitle"
             android:textSize="@dimen/detailed_movie_title_text_size"
+            android:layout_margin="@dimen/detailed_movie_margin_border_size"
             android:layout_alignParentEnd="true" />
 
         <ImageView
@@ -26,6 +27,7 @@
             app:srcCompat="@mipmap/ic_launcher"
             android:id="@+id/detailedMoviePoster"
             android:layout_below="@+id/detailedMovieTitle"
+            android:layout_margin="@dimen/detailed_movie_margin_border_size"
             android:layout_alignParentStart="true" />
 
         <TextView
@@ -33,6 +35,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/detailedMovieYear"
             android:layout_below="@+id/detailedMoviePoster"
+            android:layout_margin="@dimen/detailed_movie_margin_border_size"
+            android:text="@string/year"
             android:layout_alignParentStart="true" />
 
         <TextView
@@ -40,27 +44,35 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/detailedMovieYear"
             android:layout_alignParentStart="true"
-            android:id="@+id/detailedMovieDuration" />
+            android:layout_margin="@dimen/detailed_movie_margin_border_size"
+            android:id="@+id/detailedMovieDuration"
+            android:text="@string/duration"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/detailedMovieCategory"
             android:layout_below="@+id/detailedMovieDuration"
+            android:layout_margin="@dimen/detailed_movie_margin_border_size"
+            android:text="@string/category"
             android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/detailedMovieActors"
+            android:text="@string/actors"
             android:layout_below="@+id/detailedMovieCategory"
+            android:layout_margin="@dimen/detailed_movie_margin_border_size"
             android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/detailedMovieDescription"
+            android:text="@string/description"
             android:layout_below="@+id/detailedMovieActors"
+            android:layout_margin="@dimen/detailed_movie_margin_border_size"
             android:layout_alignParentStart="true" />
     </RelativeLayout>
 </ScrollView>

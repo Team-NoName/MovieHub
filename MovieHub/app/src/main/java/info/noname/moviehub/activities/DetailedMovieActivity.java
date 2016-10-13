@@ -1,5 +1,6 @@
 package info.noname.moviehub.activities;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -16,15 +17,15 @@ import info.noname.moviehub.models.Movie;
  */
 
 public class DetailedMovieActivity extends AppCompatActivity implements IOnItemClicked {
-    private Movie mSelectedMovie;
-    private TextView mMovieTitle;
-    private ImageView mMoviePoster;
-    private TextView mMovieYear;
-    private TextView mMovieDuration;
-    private TextView mMovieCategory;
-    private TextView mMovieActors;
-    private TextView mMovieDescription;
-    private static IOnItemClicked callback;
+    Movie mSelectedMovie;
+    TextView mMovieTitle;
+    ImageView mMoviePoster;
+    TextView mMovieYear;
+    TextView mMovieDuration;
+    TextView mMovieCategory;
+    TextView mMovieActors;
+    TextView mMovieDescription;
+    Resources res;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class DetailedMovieActivity extends AppCompatActivity implements IOnItemC
         setContentView(R.layout.detailed_movie_view);
 
         mSelectedMovie = getIntent().getParcelableExtra("movie");
+        res = getResources();
 
         mMovieTitle = (TextView)findViewById(R.id.detailedMovieTitle);
         mMoviePoster = (ImageView)findViewById(R.id.detailedMoviePoster);
@@ -43,11 +45,11 @@ public class DetailedMovieActivity extends AppCompatActivity implements IOnItemC
 
         mMovieTitle.setText(mSelectedMovie.get_title());
         Picasso.with(this).load(mSelectedMovie.get_poster()).into(mMoviePoster);
-        mMovieYear.setText(String.valueOf(mSelectedMovie.get_year()));
-        mMovieDuration.setText(String.valueOf(mSelectedMovie.get_duration()));
-        mMovieCategory.setText(mSelectedMovie.get_category().get_name());
+        mMovieYear.setText(String.format(res.getString(R.string.year), String.valueOf(mSelectedMovie.get_year())));
+        mMovieDuration.setText(String.format(res.getString(R.string.duration),String.valueOf(mSelectedMovie.get_duration())));
+        mMovieCategory.setText(String.format(res.getString(R.string.category), mSelectedMovie.get_category().get_name()));
         mMovieActors.setText("");
-        mMovieDescription.setText(mSelectedMovie.get_description());
+        mMovieDescription.setText(String.format(res.getString(R.string.description),mSelectedMovie.get_description()));
     }
 
     @Override

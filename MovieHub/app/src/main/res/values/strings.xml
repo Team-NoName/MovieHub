@@ -11,4 +11,9 @@
     <string name="register_here">Register Here</string>
     <string name="movie_poster">movie_poster</string>
     <string name="logout">logout</string>
+    <string name="year">Year: %1$s</string>
+    <string name="duration">Duration: %1$s</string>
+    <string name="category">Category: %1$s</string>
+    <string name="actors">Actors: %1$s</string>
+    <string name="description">Description: %1$s</string>
 </resources>
