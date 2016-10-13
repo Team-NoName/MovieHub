@@ -43,8 +43,8 @@ public class DetailedMovieActivity extends AppCompatActivity implements IOnItemC
 
         mMovieTitle.setText(mSelectedMovie.get_title());
         Picasso.with(this).load(mSelectedMovie.get_poster()).into(mMoviePoster);
-        mMovieYear.setText(mSelectedMovie.get_year());
-        mMovieDuration.setText(mSelectedMovie.get_duration());
+        mMovieYear.setText(String.valueOf(mSelectedMovie.get_year()));
+        mMovieDuration.setText(String.valueOf(mSelectedMovie.get_duration()));
         mMovieCategory.setText(mSelectedMovie.get_category().get_name());
         mMovieActors.setText("");
         mMovieDescription.setText(mSelectedMovie.get_description());

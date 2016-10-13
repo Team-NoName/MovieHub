@@ -18,5 +18,6 @@
     <dimen name="category_text_size">24dp</dimen>
     <!-- Detailed movie dimensions -->
     <dimen name="detailed_movie_margin_border_size">4dp</dimen>
+    <dimen name="detailed_movie_padding_border_size">4dp</dimen>
     <dimen name="detailed_movie_title_text_size">20sp</dimen>
 </resources>
