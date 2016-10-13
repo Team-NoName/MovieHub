@@ -1,6 +1,5 @@
 package info.noname.moviehub.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import info.noname.moviehub.IOnCategoryClicked;
+import info.noname.moviehub.IOnItemClicked;
 import info.noname.moviehub.R;
 import info.noname.moviehub.adapters.MoviesAdapter;
 import info.noname.moviehub.models.Movie;
@@ -19,7 +18,7 @@ import info.noname.moviehub.models.MovieCategories;
  * Created by Bare7a on 10/10/2016.
  */
 
-public class MoviesActivity extends AppCompatActivity implements IOnCategoryClicked {
+public class MoviesActivity extends AppCompatActivity implements IOnItemClicked {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -50,7 +49,7 @@ public class MoviesActivity extends AppCompatActivity implements IOnCategoryClic
     }
 
     @Override
-    public void onCategoryClicked(int position) {
-
+    public void onItemClicked(int position) {
+        //put your logic here
     }
 }

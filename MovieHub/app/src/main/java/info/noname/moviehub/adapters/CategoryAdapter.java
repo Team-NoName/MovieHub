@@ -22,9 +22,9 @@ import info.noname.moviehub.models.Category;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     private List<Category> mDataset;
     private Context mCtx;
-    private static IOnCategoryClicked callback;
+    private static IOnItemClicked callback;
 
-    public void setCallback(IOnCategoryClicked callback){
+    public void setCallback(IOnItemClicked callback){
         this.callback = callback;
     }
     // Provide a reference to the views for each data item
@@ -48,7 +48,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     if (callback != null){
-                        callback.onCategoryClicked(getAdapterPosition());
+                        callback.onItemClicked(getAdapterPosition());
                     }
                 }
             });
@@ -56,7 +56,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CategoryAdapter(Context ctx, List<Category> myDataset, IOnCategoryClicked callback) {
+    public CategoryAdapter(Context ctx, List<Category> myDataset, IOnItemClicked callback) {
         this.mCtx = ctx;
         this.mDataset = myDataset;
         this.setCallback(callback);

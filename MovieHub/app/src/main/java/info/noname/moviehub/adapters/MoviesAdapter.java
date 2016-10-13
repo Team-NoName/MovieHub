@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import info.noname.moviehub.IOnCategoryClicked;
+import info.noname.moviehub.IOnItemClicked;
 import info.noname.moviehub.R;
 import info.noname.moviehub.models.Movie;
 
@@ -24,9 +24,9 @@ import info.noname.moviehub.models.Movie;
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder>{
     private List<Movie> mMovies;
     private Context mCtx;
-    private static IOnCategoryClicked callback;
+    private static IOnItemClicked callback;
 
-    public void setCallback(IOnCategoryClicked callback){
+    public void setCallback(IOnItemClicked callback){
         this.callback = callback;
     }
 
@@ -53,12 +53,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         @Override
         public void onClick(View v) {
             if (callback != null){
-                callback.onCategoryClicked(getAdapterPosition());
+                callback.onItemClicked(getAdapterPosition());
             }
         }
     }
 
-    public MoviesAdapter(Context context, List<Movie> movies, IOnCategoryClicked callback) {
+    public MoviesAdapter(Context context, List<Movie> movies, IOnItemClicked callback) {
         this.mCtx = context;
         this.mMovies = movies;
         this.setCallback(callback);

@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import info.noname.moviehub.CategoryAdapter;
-import info.noname.moviehub.IOnCategoryClicked;
-import info.noname.moviehub.activities.MoviesActivity;
+import info.noname.moviehub.IOnItemClicked;
 import info.noname.moviehub.R;
 import info.noname.moviehub.models.Category;
 import info.noname.moviehub.models.MovieCategories;
@@ -22,7 +21,7 @@ import info.noname.moviehub.models.MovieCategories;
  * Created by AKamenov on 10/13/2016.
  */
 
-public class CategoryActivity extends AppCompatActivity implements IOnCategoryClicked {
+public class ItemActivity extends AppCompatActivity implements IOnItemClicked {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -50,8 +49,8 @@ public class CategoryActivity extends AppCompatActivity implements IOnCategoryCl
     }
 
      @Override
-    public void onCategoryClicked(int position) {
-        Intent intent = new Intent(CategoryActivity.this, MoviesActivity.class);
+    public void onItemClicked(int position) {
+        Intent intent = new Intent(ItemActivity.this, MoviesActivity.class);
 
         Category category = myDataset.get(position);
 
