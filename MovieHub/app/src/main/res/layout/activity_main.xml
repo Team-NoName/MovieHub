@@ -23,12 +23,4 @@
 
     <include layout="@layout/content_main" />
 
-    <Button
-        android:id="@+id/logout_button"
-        android:text="@string/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_anchorGravity="top|left"
-        android:layout_gravity="bottom|right" />
-
 </android.support.design.widget.CoordinatorLayout>

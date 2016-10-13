@@ -3,8 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="info.noname.moviehub.activities.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_user_detials"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/user_details"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="@string/logout_menu_item"
         app:showAsAction="never" />
 </menu>
