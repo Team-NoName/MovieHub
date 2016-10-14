@@ -41,7 +41,8 @@ public class MovieActivity extends BasicActivity implements IOnItemClicked {
 
         mCtx = this;
         mUserLocalStore =  new UserLocalStore(mCtx);
-        loggedInUser = mUserLocalStore.getLoggedInUser();
+        List<User> users = User.findWithQuery(User.class, "SELECT * FROM USER WHERE _username = ?",mUserLocalStore.getLoggedInUser().get_username());
+        loggedInUser = users.get(0);
         res = getResources();
 
         List<MovieCategories> selectedCategory = getIntent().getParcelableArrayListExtra("category_movies");
@@ -75,14 +76,15 @@ public class MovieActivity extends BasicActivity implements IOnItemClicked {
                 @Override
                 public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                     int moviePosition = viewHolder.getAdapterPosition();
-                    Movie currentMovie = mMovies.get(moviePosition);
+                    List<Movie> currentMovies = Movie.findWithQuery(Movie.class, "SELECT * FROM MOVIE WHERE _title = ?", mMovies.get(moviePosition).get_title());
+                    Movie currentMovie = currentMovies.get(0);
 
                     List<UserListMovies> userListMovies = currentMovie.gatAllUserListMoviesByMovie();
 
                     UserListMovies userListMovie = null;
 
                     for(int i = 0; i < userListMovies.size(); i++){
-                        if(loggedInUser.equals(userListMovies.get(i).get_user())){
+                        if(loggedInUser.get_username().equals(userListMovies.get(i).get_user().get_username())){
                             userListMovie = userListMovies.get(i);
                             break;
                         }
@@ -92,7 +94,7 @@ public class MovieActivity extends BasicActivity implements IOnItemClicked {
                         userListMovie.delete();
                         Toast.makeText(mCtx, String.format(res.getString(R.string.removed_from_favourites),currentMovie.get_title()), Toast.LENGTH_SHORT).show();
                     }else{
-                        new UserListMovies(mMovies.get(moviePosition),loggedInUser).save();
+                        new UserListMovies(currentMovie,loggedInUser).save();
                         Toast.makeText(mCtx, String.format(res.getString(R.string.added_to_favourites),currentMovie.get_title()), Toast.LENGTH_SHORT).show();
                     }
 

@@ -25,21 +25,22 @@ import info.noname.moviehub.models.UserListMovies;
  * Created by Bare7a on 10/10/2016.
  */
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
+public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
     private List<Movie> mMovies;
     private Context mCtx;
     private Resources res;
     private UserLocalStore mUserLocalStore;
     private static IOnItemClicked callback;
 
-    public void setCallback(IOnItemClicked callback){
+    public void setCallback(IOnItemClicked callback) {
         this.callback = callback;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
+    static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView mTitle;
         TextView mCategory;
+        TextView mAddOrRemoveFromList;
         TextView mDescription;
         ImageView mPoster;
         RelativeLayout mParent;
@@ -49,14 +50,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
             mTitle = (TextView) v.findViewById(R.id.movieTitle);
             mCategory = (TextView) v.findViewById(R.id.movieCategory);
+            mAddOrRemoveFromList = (TextView) v.findViewById(R.id.addOrRemoveFromList);
             mDescription = (TextView) v.findViewById(R.id.movieDescription);
             mPoster = (ImageView) v.findViewById(R.id.moviePoster);
             mParent = (RelativeLayout) v.findViewById(R.id.movieParent);
 
-            mParent.setOnClickListener(new View.OnClickListener(){
+            mParent.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v){
-                    if(callback!=null){
+                public void onClick(View v) {
+                    if (callback != null) {
                         callback.onItemClicked(getAdapterPosition());
                     }
                 }
@@ -65,7 +67,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
         @Override
         public void onClick(View v) {
-            if (callback != null){
+            if (callback != null) {
                 callback.onItemClicked(getAdapterPosition());
             }
         }
@@ -74,7 +76,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     public MovieAdapter(Context context, List<Movie> movies, IOnItemClicked callback) {
         this.mCtx = context;
         this.mMovies = movies;
-        this.res = Resources.getSystem();
+        this.res = context.getResources();
         mUserLocalStore = new UserLocalStore(mCtx);
         this.setCallback(callback);
     }
@@ -88,31 +90,32 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mTitle.setText(String.format(res.getString(R.string.movie_title), mMovies.get(position).get_title(), String.valueOf(mMovies.get(position).get_year())));
-        holder.mCategory.setText(String.format(res.getString(R.string.movie_category),mMovies.get(position).get_category().get_name(),String.valueOf(mMovies.get(position).get_duration())));
+        holder.mTitle.setText(String.format(res.getString(R.string.movie_title), mMovies.get(position).get_title(), Integer.toString(mMovies.get(position).get_year())));
+        holder.mCategory.setText(String.format(res.getString(R.string.movie_category), mMovies.get(position).get_category().get_name(), Integer.toString(mMovies.get(position).get_duration())));
         holder.mDescription.setText(mMovies.get(position).get_description());
         Picasso.with(mCtx).load(mMovies.get(position).get_poster()).fit().into(holder.mPoster);
 
-        int movieTitleColor;
+        List<Movie> currentMovies = Movie.findWithQuery(Movie.class, "SELECT * FROM MOVIE WHERE _title = ?", mMovies.get(position).get_title());
+        Movie currentMovie = currentMovies.get(0);
 
-        List<UserListMovies> userListMovies = mMovies.get(position).gatAllUserListMoviesByMovie();
+        List<UserListMovies> userListMovies = currentMovie.gatAllUserListMoviesByMovie();
 
         boolean isAdded = false;
 
-        for(int i = 0; i < userListMovies.size(); i++){
-            if(mUserLocalStore.getLoggedInUser().equals(userListMovies.get(i).get_user())){
+        for (int i = 0; i < userListMovies.size(); i++) {
+            if (mUserLocalStore.getLoggedInUser().get_username().equals(userListMovies.get(i).get_user().get_username())) {
                 isAdded = true;
                 break;
             }
         }
 
-        if(isAdded){
-            movieTitleColor = ContextCompat.getColor(mCtx, R.color.colorMovieTitleFavorite);
-        }else{
-            movieTitleColor = ContextCompat.getColor(mCtx, R.color.colorMovieTitle);
+        if (isAdded) {
+            holder.mAddOrRemoveFromList.setText(R.string.remove_from_list);
+            holder.mAddOrRemoveFromList.setTextColor(ContextCompat.getColor(mCtx,R.color.colorMovieRemove));
+        } else {
+            holder.mAddOrRemoveFromList.setText(R.string.add_to_list);
+            holder.mAddOrRemoveFromList.setTextColor(ContextCompat.getColor(mCtx,R.color.colorMovieAdd));
         }
-
-        holder.mTitle.setTextColor(movieTitleColor);
     }
 
     @Override
