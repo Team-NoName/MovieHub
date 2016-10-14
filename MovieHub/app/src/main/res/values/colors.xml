@@ -7,6 +7,7 @@
     <color name="colorMovieBackground">#737373</color>
     <color name="colorMovieForeground">#242424</color>
     <color name="colorMovieTitle">#ffdf33</color>
+    <color name="colorMovieTitleFavorite">#33ffcc</color>
     <color name="colorMovieCategory">#ffffff</color>
     <color name="colorMovieDescription">#c6c6c6</color>
     <color name="colorDetailedMovieBackground">#737373</color>

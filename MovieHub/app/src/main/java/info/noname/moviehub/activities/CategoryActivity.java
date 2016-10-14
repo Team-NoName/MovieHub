@@ -48,7 +48,7 @@ public class CategoryActivity extends BasicActivity implements IOnItemClicked {
 
      @Override
     public void onItemClicked(int position) {
-        Intent intent = new Intent(CategoryActivity.this, MoviesActivity.class);
+        Intent intent = new Intent(CategoryActivity.this, MovieActivity.class);
 
         Category category = myDataset.get(position);
 

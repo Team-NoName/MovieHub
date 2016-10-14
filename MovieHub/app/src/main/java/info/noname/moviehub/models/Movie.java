@@ -155,4 +155,6 @@ public class Movie extends SugarRecord implements Parcelable {
             return new Movie[size];
         }
     };
+
+
 }

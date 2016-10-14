@@ -29,7 +29,7 @@
         </activity>
 
         <activity
-            android:name=".activities.MoviesActivity"
+            android:name=".activities.MovieActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
