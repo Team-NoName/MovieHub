@@ -1,6 +1,7 @@
 package info.noname.moviehub.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import info.noname.moviehub.R;
@@ -9,8 +10,6 @@ import info.noname.moviehub.models.User;
 
 public class MainActivity extends BasicActivity {
     public final Context mCtx = this;
-
-
 
     private LoginFragmentManager mLoginManager = new LoginFragmentManager();
 
@@ -22,6 +21,10 @@ public class MainActivity extends BasicActivity {
         if (getAuthenticatedUser == null) {
 
             getFragmentManager().beginTransaction().replace(R.id.fragment_content, this.mLoginManager).commit();
+        } else {
+            Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+
+            startActivity(intent);
         }
     }
 

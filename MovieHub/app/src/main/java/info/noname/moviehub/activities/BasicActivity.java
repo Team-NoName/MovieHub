@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.nio.InvalidMarkException;
+
 import info.noname.moviehub.AlertDialogManager;
 import info.noname.moviehub.R;
 import info.noname.moviehub.UserLocalStore;
@@ -50,17 +52,26 @@ public class BasicActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
 
         int id = item.getItemId();
-        if (id == R.id.action_logout) {
-            this.userLocalStore.setUserLoggedIn(false);
-            this.userLocalStore.clearUserData();
+        switch (id) {
+            case R.id.action_user_detаils:
+                intent = new Intent(BasicActivity.this, UserDetailsActivity.class);
 
-            Intent intent = new Intent(BasicActivity.this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.action_logout:
+                this.userLocalStore.setUserLoggedIn(false);
+                this.userLocalStore.clearUserData();
 
-            startActivity(intent);
-            return true;
+                intent = new Intent(BasicActivity.this, MainActivity.class);
+
+                startActivity(intent);
+                break;
+            default: throw new InvalidMarkException();
         }
+
 
         return super.onOptionsItemSelected(item);
     }
