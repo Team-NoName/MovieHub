@@ -23,5 +23,5 @@
 
     <include layout="@layout/category_layout" />
     <include layout="@layout/movies_layout" />
-
+    <include layout="@layout/comments_recycle_view"/>
 </RelativeLayout>

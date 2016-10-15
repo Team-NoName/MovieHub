@@ -69,6 +69,8 @@ public class MainApplication extends Application {
         Movie movie4 = new Movie("Borat", categoryComedy, 2006, 86, "Borat Sagdiyev is a TV reporter of a popular show in Kazakhstan as Kazakhstan's sixth most famous man and a leading journalist. He is sent from his home to America by his government to make a documentary about American society and culture. Borat takes a course in New York City to understand American humor. While watching Baywatch on TV, Borat discovers how beautiful their women are in the form of C. J. Parker, who was played by actress Pamela Anderson who hails from Malibu, California. He decides to go on a cross-country road trip to California in a quest to make her his wife and take her back to his country. On his journey Borat and his producer encounter a country full of strange and wonderful Americans, real people in real chaotic situations with hysterical consequences.", "https://upload.wikimedia.org/wikipedia/en/3/39/Borat_ver2.jpg","https://www.youtube.com/watch?v=vlnUa_dNsRQ" );
 
         MovieComments comment1 = new MovieComments("I absolutely love this movie!", movie1, user1);
+        MovieComments comment2 = new MovieComments("I absolutely love this movie, yeaahh!", movie2, user1);
+        MovieComments comment3 = new MovieComments("love this movie it's awseome", movie4, user1);
 
         Actor kevinHart = new Actor("Keanu", "Reeves");
 
@@ -89,6 +91,8 @@ public class MainApplication extends Application {
         movie3.save();
         movie4.save();
         comment1.save();
+        comment2.save();
+        comment3.save();
         kevinHart.save();
         movieActors.save();
         movieCategories.save();

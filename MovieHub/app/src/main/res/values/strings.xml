@@ -24,4 +24,5 @@
     <string name="remove_from_list">Remove</string>
     <string name="user_details">User details</string>
     <string name="logout_menu_item">Logout</string>
+    <string name="add_comment">Send</string>
 </resources>

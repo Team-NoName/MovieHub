@@ -15,4 +15,6 @@
     <color name="colorDetailedMovieBackground">#737373</color>
     <color name="colorDetailedMovieForeground">#242424</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="darkGreen">#003300</color>
 </resources>
