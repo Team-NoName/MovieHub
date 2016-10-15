@@ -76,7 +76,10 @@ public class MainApplication extends Application {
 
         MovieActors movieActors = new MovieActors(movie1, kevinHart);
 
-        MovieCategories movieCategories = new MovieCategories(movie1, categoryAction);
+        MovieCategories movieCategories1 = new MovieCategories(movie1, categoryAction);
+        MovieCategories movieCategories2 = new MovieCategories(movie2, categoryDrama);
+        MovieCategories movieCategories3 = new MovieCategories(movie3, categoryAction);
+        MovieCategories movieCategories4 = new MovieCategories(movie4, categoryComedy);
 
         UserVotes userVotes = new UserVotes(movie1, user1, 1);
 
@@ -95,7 +98,10 @@ public class MainApplication extends Application {
         comment3.save();
         kevinHart.save();
         movieActors.save();
-        movieCategories.save();
+        movieCategories1.save();
+        movieCategories2.save();
+        movieCategories3.save();
+        movieCategories4.save();
         userVotes.save();
         userListMovies.save();
     }

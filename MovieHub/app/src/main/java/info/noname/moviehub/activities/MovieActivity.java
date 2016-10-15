@@ -56,8 +56,9 @@ public class MovieActivity extends BasicActivity implements IOnItemClicked {
         mIth.attachToRecyclerView(mRecyclerView);
         mMovies = new ArrayList<Movie>();
 
-        mMovies.add(selectedCategory.iterator().next().get_movie());
-        //mMovies = Movie.listAll(Movie.class);
+        for (MovieCategories aSelectedCategory : selectedCategory) {
+            mMovies.add(aSelectedCategory.get_movie());
+        }
 
         mAdapter = new MovieAdapter(this, mMovies, this);
         mRecyclerView.setAdapter(mAdapter);
